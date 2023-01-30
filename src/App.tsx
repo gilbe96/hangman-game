@@ -29,8 +29,12 @@ const App: FC = () => {
     [guessedLetters, isLosser, isWinner]
   );
   useEffect(() => {
-    if (isLosser || isWinner)
-      document.getElementById("demo-modal").style.display = "block";
+    if (isLosser || isWinner) {
+      var element = document.getElementById("btn-modal");
+      if (element != null) {
+        element.click();
+      }
+    }
   }, [isLosser, isWinner]);
 
   useEffect(() => {
@@ -52,11 +56,13 @@ const App: FC = () => {
     <StyledApp className="App">
       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
 
-      <a href="#demo-modal">Open Demo Modal</a>
+      <a className="btn-modal" id="btn-modal" href="#demo-modal">
+        Open Demo Modal
+      </a>
 
       <div id="demo-modal" className="modal">
         <div className="modal__content">
-          <h1>{WINNER}</h1>
+          <h1>{isWinner == true ? WINNER : LOSSER}</h1>
 
           <div className="modal__footer">
             <button>

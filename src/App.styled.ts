@@ -24,6 +24,10 @@ export const StyledApp = styled.div`
     font-family: "Roboto", sans-serif;
   }
 
+  .btn-modal {
+    visibility: hidden;
+  }
+
   .modal {
     visibility: hidden;
     opacity: 0;
