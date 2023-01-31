@@ -13,7 +13,7 @@ export const StyledApp = styled.div`
 
   /* If you like this, be sure to ❤️ it. */
 
-  a {
+  .btn-again {
     display: inline-block;
     text-decoration: none;
     padding: 15px;
@@ -61,10 +61,10 @@ export const StyledApp = styled.div`
   .modal__footer {
     text-align: right;
     button {
-      background-color: #585858;
+      background-color: #4d004d;
     }
     a {
-      background-color: #585858;
+      background-color: #4d004d;
       color: #fff;
       padding: 0.5rem;
     }

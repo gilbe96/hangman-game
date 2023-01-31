@@ -4,6 +4,9 @@ import { StyledApp } from "./App.styled";
 import HangmanDrawing from "./components/hangmanDrawing/HangmanDrawing";
 import HangmanWord from "./components/hangmanWord/HangmanWord";
 import Keyboard from "./components/keyboard/Keyboard";
+import losserAudio from "./assets/losser.mp3";
+import winnerAudio from "./assets/winner.mp3";
+import keyPress from "./assets/keyPress.mp3";
 
 const WINNER = "Congratulations! You are a winner 😁";
 const LOSSER = "You lost 😢. Retry! ";
@@ -21,18 +24,34 @@ const App: FC = () => {
     .split("")
     .every((letter) => guessedLetters.includes(letter));
 
+  const keyPress_audio = new Audio(keyPress);
+
   const addGuessedLetter = useCallback(
     (letter: string) => {
+      if (keyPress_audio != null) {
+        keyPress_audio.play();
+      }
       if (guessedLetters.includes(letter) || isLosser || isWinner) return;
       setGuessedLetters((currentLetters) => [...currentLetters, letter]);
+      if (keyPress_audio != null) {
+        keyPress_audio.play();
+      }
     },
     [guessedLetters, isLosser, isWinner]
   );
   useEffect(() => {
     if (isLosser || isWinner) {
-      var element = document.getElementById("btn-modal");
+      const element = document.getElementById("btn-modal");
+      const losser_audio = new Audio(losserAudio);
+      const winner_audio = new Audio(winnerAudio);
       if (element != null) {
         element.click();
+        if (isLosser && losser_audio != null) {
+          losser_audio.play();
+        }
+        if (isWinner && winner_audio != null) {
+          winner_audio.play();
+        }
       }
     }
   }, [isLosser, isWinner]);
@@ -56,17 +75,15 @@ const App: FC = () => {
     <StyledApp className="App">
       <HangmanDrawing numberOfGuesses={incorrectLetters.length} />
 
-      <a className="btn-modal" id="btn-modal" href="#demo-modal">
-        Open Demo Modal
-      </a>
-
       <div id="demo-modal" className="modal">
         <div className="modal__content">
           <h1>{isWinner == true ? WINNER : LOSSER}</h1>
 
           <div className="modal__footer">
             <button>
-              <a href="">Again</a>
+              <a className="btn-again" href="">
+                Again
+              </a>
             </button>
           </div>
         </div>
@@ -86,6 +103,7 @@ const App: FC = () => {
           inactiveLetters={incorrectLetters}
           addGuessedLetter={addGuessedLetter}
         />
+        <a className="btn-modal" id="btn-modal" href="#demo-modal"></a>
       </div>
     </StyledApp>
   );
