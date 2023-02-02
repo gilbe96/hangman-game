@@ -23,4 +23,12 @@ export const StyledKeyboard = styled.div`
   .inactive {
     opacity: 0.3;
   }
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(auto-fit, minmax(25px, 1fr));
+    .key {
+      font-size: 1.2 rem;
+      margin: -8px;
+    }
+    gap: 1.5rem;
+  }
 `;

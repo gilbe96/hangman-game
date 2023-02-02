@@ -87,4 +87,50 @@ export const StyledHangmanDrawing = styled.div`
     rotate: -60deg;
     transform-origin: right bottom;
   }
+  @media (max-width: 600px) {
+    .upper-part {
+      width: 150px;
+      margin-left: 8.65rem;
+    }
+    .rope {
+      height: 30px;
+    }
+    .pole {
+      height: 250px;
+    }
+    .base {
+      height: 20px;
+      width: 250px;
+      background-color: #669999;
+    }
+    .head {
+      width: 30px;
+      height: 30px;
+      top: 30px;
+      right: -22px;
+    }
+    .body {
+      width: 8px;
+      height: 80px;
+      top: 78px;
+    }
+    .right-arm {
+      width: 70px;
+      top: 112px;
+      right: -70px;
+    }
+    .left-arm {
+      width: 70px;
+      top: 112px;
+    }
+    .right-leg {
+      width: 70px;
+      top: 148px;
+      right: -62px;
+    }
+    .left-leg {
+      width: 70px;
+      top: 148px;
+    }
+  }
 `;
