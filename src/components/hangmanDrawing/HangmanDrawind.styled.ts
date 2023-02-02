@@ -10,12 +10,12 @@ export const StyledHangmanDrawing = styled.div`
     margin-left: 15rem;
     height: 10px;
     width: 250px;
-    background-color: white;
+    background-color: #669999;
   }
   .rope {
     height: 50px;
     width: 5px;
-    background-color: white;
+    background-color: #669999;
     top: 0;
     right: 0;
     position: absolute;
@@ -23,12 +23,12 @@ export const StyledHangmanDrawing = styled.div`
   .pole {
     height: 350px;
     width: 10px;
-    background-color: white;
+    background-color: #669999;
   }
   .base {
     height: 20px;
     width: 250px;
-    background-color: white;
+    background-color: #669999;
   }
   .head {
     width: 50px;
